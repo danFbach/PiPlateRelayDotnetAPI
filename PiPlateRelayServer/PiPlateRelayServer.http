@@ -1,0 +1,61 @@
+@PiPlateRelayServer_HostAddress = http://192.168.1.36:5055
+@boardNumber = 0
+@relayNumber = 1
+
+
+GET {{PiPlateRelayServer_HostAddress}}/board/info/{{boardNumber}}
+Accept: application/json
+
+###
+GET {{PiPlateRelayServer_HostAddress}}/board/hardwareVersion/{{boardNumber}}
+Accept: application/json
+
+###
+GET {{PiPlateRelayServer_HostAddress}}/board/firmwareVersion/{{boardNumber}}
+Accept: application/json
+
+###
+POST {{PiPlateRelayServer_HostAddress}}/board/ledOn/{{boardNumber}}
+Accept: application/json
+
+###
+
+POST {{PiPlateRelayServer_HostAddress}}/board/ledOff/{{boardNumber}}
+Accept: application/json
+
+###
+
+POST {{PiPlateRelayServer_HostAddress}}/board/ledToggle/{{boardNumber}}
+Accept: application/json
+
+###
+
+POST {{PiPlateRelayServer_HostAddress}}/relay/on/{{boardNumber}}/{{relayNumber}}
+Accept: application/json
+
+###
+
+POST {{PiPlateRelayServer_HostAddress}}/relay/off/{{boardNumber}}/{{relayNumber}}
+Accept: application/json
+
+###
+
+POST {{PiPlateRelayServer_HostAddress}}/relay/toggle/{{boardNumber}}/{{relayNumber}}
+Accept: application/json
+
+###
+
+GET {{PiPlateRelayServer_HostAddress}}/relay/status/{{boardNumber}}
+Accept: application/json
+
+###
+
+GET {{PiPlateRelayServer_HostAddress}}/relay/status/{{boardNumber}}/{{relayNumber}}
+Accept: application/json
+
+###
+
+POST {{PiPlateRelayServer_HostAddress}}/relay/reset/{{boardNumber}}
+Accept: application/json
+
+###
