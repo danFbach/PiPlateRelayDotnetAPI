@@ -1,4 +1,4 @@
-@PiPlateRelayServer_HostAddress = http://192.168.1.36:5055
+@PiPlateRelayServer_HostAddress = http://localhost:5055
 @boardNumber = 0
 @relayNumber = 1
 
