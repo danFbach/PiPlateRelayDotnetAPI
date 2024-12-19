@@ -7,7 +7,7 @@ namespace PiPlateRelayServer.Controllers
     {
         private readonly PiPlateService _piPlateService = piPlateService;
 
-        [HttpPost, Route("/relay/on/{id}/{relayNumber}")]
+        [HttpPost, Route("/board/{id}/relay/{relayNumber}/on")]
         public async Task<IActionResult> On(int id, int relayNumber)
         {
             try
@@ -21,7 +21,7 @@ namespace PiPlateRelayServer.Controllers
             }
         }
 
-        [HttpPost, Route("/relay/off/{id}/{relayNumber}")]
+        [HttpPost, Route("/board/{id}/relay/{relayNumber}/off")]
         public async Task<IActionResult> Off(int id, int relayNumber)
         {
             try
@@ -36,7 +36,7 @@ namespace PiPlateRelayServer.Controllers
             }
         }
 
-        [HttpPost, Route("/relay/toggle/{id}/{relayNumber}")]
+        [HttpPost, Route("/board/{id}/relay/{relayNumber}/toggle")]
         public async Task<IActionResult> Toggle(int id, int relayNumber)
         {
             try
@@ -51,7 +51,22 @@ namespace PiPlateRelayServer.Controllers
             }
         }
 
-        [HttpGet, Route("/relay/status/{id}/{relayNumber?}")]
+        [HttpGet, Route("/board/{id}/relay/status")]
+        public async Task<IActionResult> Status(int id)
+        {
+            try
+            {
+                var status = await _piPlateService.Relay.StatusAsync(id);
+
+                return JsonSuccess(status.Statuses);
+            }
+            catch (Exception ex)
+            {
+                return JsonFailure(ex.Message);
+            }
+        }
+
+        [HttpGet, Route("/board/{id}/relay/{relayNumber?}/status")]
         public async Task<IActionResult> Status(int id, int? relayNumber)
         {
             try
@@ -74,7 +89,7 @@ namespace PiPlateRelayServer.Controllers
             }
         }
 
-        [HttpPost, Route("/relay/reset/{id}")]
+        [HttpPost, Route("/board/{id}/relay/reset")]
         public async Task<IActionResult> Reset(int id)
         {
             try

@@ -1,61 +1,61 @@
-@PiPlateRelayServer_HostAddress = http://localhost:5055
+@PiPlateRelayServer_HostAddress = http://192.168.1.36:5055
 @boardNumber = 0
 @relayNumber = 1
 
 
-GET {{PiPlateRelayServer_HostAddress}}/board/info/{{boardNumber}}
+GET {{PiPlateRelayServer_HostAddress}}/board/{{boardNumber}}/info
 Accept: application/json
 
 ###
-GET {{PiPlateRelayServer_HostAddress}}/board/hardwareVersion/{{boardNumber}}
+GET {{PiPlateRelayServer_HostAddress}}/board/{{boardNumber}}/hardwareVersion
 Accept: application/json
 
 ###
-GET {{PiPlateRelayServer_HostAddress}}/board/firmwareVersion/{{boardNumber}}
+GET {{PiPlateRelayServer_HostAddress}}/board/{{boardNumber}}/firmwareVersion
 Accept: application/json
 
 ###
-POST {{PiPlateRelayServer_HostAddress}}/board/ledOn/{{boardNumber}}
-Accept: application/json
-
-###
-
-POST {{PiPlateRelayServer_HostAddress}}/board/ledOff/{{boardNumber}}
+POST {{PiPlateRelayServer_HostAddress}}/board/{{boardNumber}}/ledOn
 Accept: application/json
 
 ###
 
-POST {{PiPlateRelayServer_HostAddress}}/board/ledToggle/{{boardNumber}}
+POST {{PiPlateRelayServer_HostAddress}}/board/{{boardNumber}}/ledOff
 Accept: application/json
 
 ###
 
-POST {{PiPlateRelayServer_HostAddress}}/relay/on/{{boardNumber}}/{{relayNumber}}
+POST {{PiPlateRelayServer_HostAddress}}/board/{{boardNumber}}/ledToggle
 Accept: application/json
 
 ###
 
-POST {{PiPlateRelayServer_HostAddress}}/relay/off/{{boardNumber}}/{{relayNumber}}
+POST {{PiPlateRelayServer_HostAddress}}/board/{{boardNumber}}/relay/{{relayNumber}}/on
 Accept: application/json
 
 ###
 
-POST {{PiPlateRelayServer_HostAddress}}/relay/toggle/{{boardNumber}}/{{relayNumber}}
+POST {{PiPlateRelayServer_HostAddress}}/board/{{boardNumber}}/relay/{{relayNumber}}/off
 Accept: application/json
 
 ###
 
-GET {{PiPlateRelayServer_HostAddress}}/relay/status/{{boardNumber}}
+POST {{PiPlateRelayServer_HostAddress}}/board/{{boardNumber}}/relay/{{relayNumber}}/toggle
 Accept: application/json
 
 ###
 
-GET {{PiPlateRelayServer_HostAddress}}/relay/status/{{boardNumber}}/{{relayNumber}}
+GET {{PiPlateRelayServer_HostAddress}}/board/{{boardNumber}}/relay/status
 Accept: application/json
 
 ###
 
-POST {{PiPlateRelayServer_HostAddress}}/relay/reset/{{boardNumber}}
+GET {{PiPlateRelayServer_HostAddress}}/board/{{boardNumber}}/relay/{{relayNumber}}/status
+Accept: application/json
+
+###
+
+POST {{PiPlateRelayServer_HostAddress}}/board/{{boardNumber}}/relay/reset
 Accept: application/json
 
 ###

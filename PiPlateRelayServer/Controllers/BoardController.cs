@@ -8,7 +8,7 @@ namespace PiPlateRelayServer.Controllers
     {
         private readonly PiPlateService _piPlateService = piPlateService;
 
-        [HttpGet, Route("board/info/{id}")]
+        [HttpGet, Route("board/{id}/info")]
         public async Task<IActionResult> Info(int id)
         {
             try
@@ -21,7 +21,7 @@ namespace PiPlateRelayServer.Controllers
             }
         }
 
-        [HttpGet, Route("board/hardwareVersion/{id}")]
+        [HttpGet, Route("board/{id}/hardwareVersion")]
         public async Task<IActionResult> HardwareVersion(int id)
         {
             try
@@ -38,7 +38,7 @@ namespace PiPlateRelayServer.Controllers
             }
         }
 
-        [HttpGet, Route("board/firmwareVersion/{id}")]
+        [HttpGet, Route("board/{id}/firmwareVersion")]
         public async Task<IActionResult> FirmwareVersion(int id)
         {
             try
@@ -55,7 +55,7 @@ namespace PiPlateRelayServer.Controllers
             }
         }
 
-        [HttpPost, Route("board/ledOn/{id}")]
+        [HttpPost, Route("board/{id}/ledOn")]
         public async Task<IActionResult> LEDOn(int id)
         {
             try
@@ -69,7 +69,7 @@ namespace PiPlateRelayServer.Controllers
             }
         }
 
-        [HttpPost, Route("board/ledOff/{id}")]
+        [HttpPost, Route("board/{id}/ledOff")]
         public async Task<IActionResult> LEDOff(int id)
         {
             try
@@ -83,7 +83,7 @@ namespace PiPlateRelayServer.Controllers
             }
         }
 
-        [HttpPost, Route("board/ledToggle/{id}")]
+        [HttpPost, Route("board/{id}/ledToggle")]
         public async Task<IActionResult> LEDToggle(int id)
         {
             try
